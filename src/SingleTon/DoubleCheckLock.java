@@ -5,9 +5,18 @@ package SingleTon;
  * DCL实现单例
  */
 public class DoubleCheckLock {
-    private static DoubleCheckLock doubleCheckLock=null;
+    private volatile static DoubleCheckLock doubleCheckLock=null;
     private DoubleCheckLock(){
 
     }
-   // public static volatile DoubleCheckLock
+    public  static DoubleCheckLock getInatance(){
+        if (doubleCheckLock==null){
+            synchronized (DoubleCheckLock.class){
+                if (doubleCheckLock==null){
+                    doubleCheckLock=new DoubleCheckLock();
+                }
+            }
+        }
+        return doubleCheckLock;
+    }
 }
