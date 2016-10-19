@@ -53,7 +53,7 @@ public class Main {
         document1.setText("克隆");
         document1.addImage("克隆image1");
         document1.showDocument();
-        System.out.println("===========继续打印原文档=========");
+        System.out.println("===========继续打印原文档==========");
         document.showDocument();
     }
 }
