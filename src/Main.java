@@ -1,3 +1,5 @@
+import ObserverPattern.Coder;
+import ObserverPattern.DevTechFrontier;
 import Prototype.WordDocument_QianKaoBei;
 import Prototype.WordDocument_ShenKaoBei;
 
@@ -40,7 +42,7 @@ public class Main {
         System.out.println("===========继续打印原文档=========");
         document.showDocument();*/
        //深拷贝
-        WordDocument_ShenKaoBei document=new WordDocument_ShenKaoBei();
+       /* WordDocument_ShenKaoBei document=new WordDocument_ShenKaoBei();
         document.setText("原型");
         document.addImage("原型image1");
         document.addImage("原型image2");
@@ -54,6 +56,23 @@ public class Main {
         document1.addImage("克隆image1");
         document1.showDocument();
         System.out.println("===========继续打印原文档==========");
-        document.showDocument();
+        document.showDocument();*/
+       //观察者模式
+        DevTechFrontier devTechFrontier=new DevTechFrontier();
+        Coder coder1=new Coder("coder1");
+        Coder coder2=new Coder("coder2");
+        Coder coder3=new Coder("coder3");
+        Coder coder4=new Coder("coder4");
+        Coder coder5=new Coder("coder5");
+        Coder coder6=new Coder("coder6");
+        //将观察者注册到可观察对象的观察者列表中
+        devTechFrontier.addObserver(coder1);
+        devTechFrontier.addObserver(coder2);
+        devTechFrontier.addObserver(coder3);
+        devTechFrontier.addObserver(coder4);
+        devTechFrontier.addObserver(coder5);
+        devTechFrontier.addObserver(coder6);
+        //发布消息
+        devTechFrontier.postNewPublication("测试消息");
     }
 }
